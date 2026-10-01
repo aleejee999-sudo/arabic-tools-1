@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="veiwport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة العمر بالتفصيل | عمر کا حساب مفت</title>
+    <meta name="description" content="تاریخِ پیدائش سے اپنی عمر سال، مہینے اور دن میں معلوم کریں۔ مفت آن لائن عمر کا حساب۔">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+           <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
+      <div class="nav-links">
+        <a href="index.html">ہوم</a>
+         <a href="blog.html">بلاگ</a>
+        <a href="about.html">ہمارے بارے میں</a>
+        <a href="contact.html">رابطہ</a>
+      </div>
+      <div class="lang-switch">
+        <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="tools-menu">
+      <a class="tab-btn" href="horoscope.html" id="tab-zodiac">🔮 الأبراج والحظ</a>
+      <a class="tab-btn active" href="age-counter.html" id="tab-age">🎂 حاسبة العمر</a>
+      <a class="tab-btn" href="wa-direct.html" id="tab-wa">💬 واتساب مباشر</a>
+      <a class="tab-btn" href="tasbih-counter.html" id="tab-tasbeeh">📿 التسبيح والأدعية</a>
+    </div>
+    <div id="tool-age" class="card tool-section">
+      <h1 id="age-title">🎂 حاسبة العمر بالتفصيل</h1>
+      <p class="description" id="age-desc">احسب عمرك بالتفصيل بالسنوات والأشهر والأيام!</p>
+
+      <div class="form-group">
+        <label id="lbl-age-dob" for="age-dob-input">تاريخ الميلاد:</label>
+        <input type="date" id="age-dob-input">
+      </div>
+
+      <button id="btn-calc-age" onclick="calculateAge()">احسب العمر 🎈</button>
+
+      <div id="age-result" class="result-box" style="display: none;">
+        <h3 id="age-res-text"></h3>
+      </div>
+    </div>
+  </div>
+  
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

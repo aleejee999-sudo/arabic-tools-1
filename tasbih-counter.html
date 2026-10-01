@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آن لائن تسبیح کاؤنٹر، مسنون دعائیں اور وظائف</title>
+  <meta name="description" content="موبائل پر مفت ڈیجیٹل تسبیح کاؤنٹر، مسنون دعائیں اور مقبول وظائف اردو ترجمے کے ساتھ۔">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
+      <div class="nav-links">
+        <a href="index.html">ہوم</a>
+        <a href="blog.html">بلاگ</a>
+        <a href="about.html">ہمارے بارے میں</a>
+        <a href="contact.html">رابطہ</a>
+      </div>
+      <div class="lang-switch">
+        <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="tools-menu">
+      <a class="tab-btn" href="horoscope.html" id="tab-zodiac">🔮 الأبراج والحظ</a>
+      <a class="tab-btn" href="age-counter.html" id="tab-age">🎂 حاسبة العمر</a>
+      <a class="tab-btn" href="wa-direct.html" id="tab-wa">💬 واتساب مباشر</a>
+      <a class="tab-btn active" href="tasbih-counter.html" id="tab-tasbeeh">📿 التسبيح والأدعية</a>
+    </div>
+
+    <div id="tool-tasbeeh" class="card tool-section">
+      <div class="tasbeeh-container">
+
+        <div class="sub-nav-tabs" style="display: flex; gap: 10px; margin-bottom: 20px; justify-content: center;">
+          <button class="sub-tab-btn active" id="subTabTasbeeh" onclick="openSubTab(event, 'sub-tasbeeh')">تسبیح کاؤنٹر</button>
+          <button class="sub-tab-btn" id="subTabDuas" onclick="openSubTab(event, 'sub-duas')">مسنون دعائیں</button>
+          <button class="sub-tab-btn" id="subTabWazaif" onclick="openSubTab(event, 'sub-wazaif')">مقبول وظائف</button>
+        </div>
+
+        <div id="sub-tasbeeh" class="sub-tab-content active">
+          <div class="tasbeeh-card" style="text-align: center;">
+            <div id="modeLabel" class="mode-label">حسبِ ترتیب (100 والی تسبیح)</div>
+            <h2 id="tasbeehName" class="tasbeeh-title" style="margin: 15px 0;">سُبْحَانَ اللّٰهِ</h2>
+            <div id="countDisplay" class="count-display" style="font-size: 3rem; font-weight: bold; margin: 15px 0;">0</div>
+
+            <button id="tapBtn" class="tap-btn" onclick="countUp()" style="width: 100%; padding: 15px; font-size: 1.2rem; cursor: pointer;">ٹیپ کریں (تسبیح گنیں)</button>
+
+            <div class="controls" style="display: flex; gap: 10px; margin-top: 15px; justify-content: center;">
+              <button id="resetBtn" class="control-btn" onclick="resetCount()">ریسیٹ (0)</button>
+              <button id="nextBtn" class="control-btn" onclick="nextTasbeeh()">اگلی تسبیح ➔</button>
+              <button id="modeBtn" class="control-btn mode-btn" onclick="toggleMode()">آزاد تسبیح</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sub-duas" class="sub-tab-content" style="display: none;">
+          <div class="card" style="margin-bottom: 15px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+            <div class="card-title" id="dua1Title" style="font-weight: bold;">۱. سو کر اٹھنے کی دعا</div>
+            <div class="arabic-text" style="font-size: 1.2rem; margin: 8px 0; color: #2c3e50;">اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرُ</div>
+            <div class="urdu-text" id="dua1Urdu" style="color: #555;">تمام تعریفیں اللہ کے لیے ہیں جس نے ہمیں مارنے کے بعد زندہ کیا اور اسی کی طرف لوٹ کر جانا ہے۔</div>
+          </div>
+
+          <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+            <div class="card-title" id="dua2Title" style="font-weight: bold;">۲. گھر سے نکلنے کی دعا</div>
+            <div class="arabic-text" style="font-size: 1.2rem; margin: 8px 0; color: #2c3e50;">بِسْمِ اللّٰهِ تَوَكَّلْتُ عَلَى اللّٰهِ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ</div>
+            <div class="urdu-text" id="dua2Urdu" style="color: #555;">اللہ کے نام کے ساتھ، میں نے اللہ پر بھروسہ کیا، اور اللہ کے بغیر نہ کوئی طاقت ہے نہ قوت۔</div>
+          </div>
+        </div>
+
+        <div id="sub-wazaif" class="sub-tab-content" style="display: none;">
+          <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+            <div class="card-title" id="wazifa1Title" style="font-weight: bold;">۱. تمام پریشانیوں اور غموں سے نجات کا وظیفہ</div>
+            <div class="arabic-text" style="font-size: 1.2rem; margin: 8px 0; color: #2c3e50;">لَّا إِلٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ</div>
+            <div class="urdu-text" id="wazifa1Urdu" style="color: #555;">آیتِ کریمہ: جو شخص مصیبت میں اسے پڑھے گا، اللہ تعالی اس کی تکلیف دور فرمائے گا۔</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

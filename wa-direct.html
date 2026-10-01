@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>واتساب مباشر بدون حفظ الرقم | ڈائریکٹ واٹس ایپ</title>
+  <meta name="description" content="نمبر سیو کیے بغیر واٹس ایپ پر ڈائریکٹ میسج بھیجیں۔ مفت آن لائن ٹول۔">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
+      <div class="nav-links">
+        <a href="index.html">ہوم</a>
+        <a href="blog.html">بلاگ</a>
+        <a href="about.html">ہمارے بارے میں</a>
+        <a href="contact.html">رابطہ</a>
+      </div>
+      <div class="lang-switch">
+        <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="tools-menu">
+      <a class="tab-btn" href="horoscope.html" id="tab-zodiac">🔮 الأبراج والحظ</a>
+      <a class="tab-btn" href="age-counter.html" id="tab-age">🎂 حاسبة العمر</a>
+      <a class="tab-btn active" href="wa-direct.html" id="tab-wa">💬 واتساب مباشر</a>
+      <a class="tab-btn" href="tasbih-counter.html" id="tab-tasbeeh">📿 التسبيح والأدعية</a>
+    </div>
+
+    <div id="tool-wa" class="card tool-section">
+      <h1 id="wa-title">💬 مراسلة واتساب مباشرة</h1>
+      <p class="description" id="wa-desc">أرسل رسالة واتساب بدون حفظ الرقم في جهات الاتصال!</p>
+
+      <div class="form-group">
+        <label id="lbl-wa-num" for="wa-number">رقم الهاتف (مع رمز الدولة):</label>
+        <input type="number" id="wa-number" placeholder="923001234567">
+      </div>
+
+      <div class="form-group">
+        <label id="lbl-wa-msg" for="wa-message">الرسالة (اختياري):</label>
+        <textarea id="wa-message" placeholder="اكتب رسالتك هنا..."></textarea>
+      </div>
+
+      <button id="btn-send-wa" onclick="openWhatsAppDirect()">فتح المحادثة 🚀</button>
+    </div>
+  </div>
+
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

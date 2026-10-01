@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="اپنا نام اور تاریخِ پیدائش لکھیں اور اپنا برج اور قسمت کا حال مفت جانیں۔">
+        <title>حاسبة الأبراج ومعرفة الحظ مجاناً | الأدوات الرقمية</title>
+        <meta name="description" contenct="اپنا نام اور تاریخِ پیدائش لکھیں اور اپنا برج اور قسمت کا حال مفت جانیں۔">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="blog.css">
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://arabic-tools-1.vercel.app/horoscope.html" />
+        <meta property="og:title" content="🔮 اكتشف برجك وحظك اليوم | كشف الحظ مجاناً"/>
+        <meta property="og:description" content="أدخل اسمك وتاريخ ميلادك واكتشف برجك وحظك وتوقعات مستقبلك!" />
+        <meta property="og:image" content="https://arabic-tools-1.vercel.app/image123"  />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="🔮 اكتشف برجك وحظك اليوم | كشف الحظ" />
+        <meta name="twitter:description" content="أدخل اسمك وتاريخ ميلادك واكتشف برجك وحظك وتوقعات مستقبلك!" />
+        <meta name="twitter:image" content="https://arabic-tools-1.vercel.app/image123" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
+                <div class="nav-links">
+                    <a href="index.html">ہوم</a>
+                    <a href="blog.html">بلاگ</a>
+                    <a href="about.html">ہمارے بارے میں</a>
+                    <a href="contact.html">رابطہ</a>
+                </div>
+                <div class="lang-switch">
+                <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            
+            <div class="tools-menu">
+                <a class="tab-btn active" href="horoscope.html" id="tab-zodiac">🔮 الأبراج والحظ</a>
+                <a class="tab-btn" href="age-counter.html" id="=tab-age">🎂 حاسبة العمر</a>
+                <a class="tab-btn" href="wa-direct.html" id="tab-wa">>💬 واتساب مباشر</a>
+                <a class="tab-btn" href="tasbih-counter.html" id="tab-tasbeeh">📿 التسبيح والأدعية</a>
+            </div>
+            
+            <div id="tool-zodiac" class="card-tool-section">
+                <h1 id="title">>🔮 حاسبة الأبراج ومعرفة الحظ</h1>
+                <p class="description" id="desc">أدخل اسمك وتاريخ ميلادك لمعرفة برجك تلقائياً واكتشاف حظك وتوقعاتك!</p>
+
+                <div class="form-group">
+                    <label id="lbl-name" for="username">اسمك الكريم:</label>
+                    <input type="text" id="username" placeholder="أدخل اسمك هنا...">
+                </div>
+
+                <div class="form-group">
+                    <label id="lbl-dob" for="dob">تاريخ ميلادك:</label>
+                    <input type="date" id="dob">
+                </div>
+
+                <button id="btn-calculate" onclick="calculateFortune()">كشف البرج والحظ ✨</button>
+
+                <div id="result-card" class="result-box" style="display: none;">
+                    <h2 id="res-name"></h2>
+                    <div class="fortune-details">
+                        <p class="zodiac-highlight">⭐ <strong><span id="lbl-zodiac-found">برجك الفلكي هو:</span></strong> <span id="res-zodiac"></span></p>
+                        <hr>
+                        <p><strong>✨<span id="lbl-res-personality">الشخصية:</span></strong><span id="res-personality"></span></p>
+                        <p><strong>🚀 <span id="lbl-res-future">التوقعات القادمة:</span></strong> <span id="res-future"></span></p>
+                        <p><strong>✈️ <span id="lbl-res-travel">فرصة السفر:</span></strong> <span id="res-travel"></span></p>
+        </div>
+
+        <div class="share-buttons">
+          <button class="btn-fb" onclick="shareFacebook()">f مشاركة على فيسبوك</button>
+          <button class="btn-wa" onclick="shareWhatsApp()">💬 مشاركة واتساب</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
