@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محول الأطوال وحاسبة مساحة القطعة | ناپ تول اور پلاٹ کا رقبہ</title>
+  <meta name="description" content="سینٹی میٹر کو فٹ اور انچ میں بدلیں، اور پلاٹ کا رقبہ مربع فٹ، مربع گز اور مرلہ میں معلوم کریں۔ مفت آن لائن ٹول۔">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
+      <div class="nav-links">
+        <a href="index.html">ہوم</a>
+        <a href="blog.html">بلاگ</a>
+        <a href="about.html">ہمارے بارے میں</a>
+        <a href="contact.html">رابطہ</a>
+      </div>
+      <div class="lang-switch">
+        <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="tools-menu">
+      <a class="tab-btn" href="horoscope.html" id="tab-zodiac">🔮 الأبراج والحظ</a>
+      <a class="tab-btn" href="age-counter.html" id="tab-age">🎂 حاسبة العمر</a>
+      <a class="tab-btn" href="wa-direct.html" id="tab-wa">💬 واتساب مباشر</a>
+      <a class="tab-btn" href="tasbih-counter.html" id="tab-tasbeeh">📿 التسبيح والأدعية</a>
+      <a class="tab-btn active" href="unit-converter.html" id="tab-unit">📏 المحول والمساحة</a>
+    </div>
+
+    <div class="tool-stack">
+
+      <!-- Section 1: Reference chart -->
+      <div class="card">
+        <h1 id="ref-title">📋 جدول مرجعي لتحويل الوحدات</h1>
+        <p class="description" id="ref-desc">المعادلات الدقيقة بين وحدات الطول والمساحة.</p>
+        <table class="ref-table">
+          <thead>
+            <tr><th id="ref-col-unit">الوحدة</th><th id="ref-col-eq">تعادل</th></tr>
+          </thead>
+          <tbody id="ref-body"></tbody>
+        </table>
+        <p class="note" id="marla-note">المرلة المعتمدة هنا 225 قدماً مربعاً (25 ياردة مربعة). وفي بعض المناطق تُعتمد 272.25 قدماً مربعاً (30.25 ياردة مربعة).</p>
+      </div>
+
+          <!-- Section 2: Converter -->
+      <div class="card">
+        <h1 id="conv-title">📐 محوّل الأطوال الشامل</h1>
+        <p class="description" id="conv-desc">اختر وحدة الإدخال ووحدة الإخراج، وأدخل القيمة لترى النتيجة فوراً.</p>
+
+        <div class="form-group">
+          <label id="lbl-value" for="conv-value">القيمة:</label>
+          <input type="number" id="conv-value" inputmode="decimal" step="any" min="0" placeholder="مثال: 182">
+        </div>
+
+        <div class="unit-pick">
+          <div class="form-group">
+            <label id="lbl-from-unit" for="conv-unit">من وحدة:</label>
+            <select id="conv-unit"></select>
+          </div>
+          <button type="button" class="swap-btn" onclick="swapUnits()" aria-label="⇄">⇄</button>
+          <div class="form-group">
+            <label id="lbl-to-unit" for="conv-to">إلى وحدة:</label>
+            <select id="conv-to"></select>
+          </div>
+        </div>
+
+        <div class="conv-main" id="conv-main">—</div>
+
+        <div class="height-box">
+          <h3 id="height-title">🧍 صيغة الطول البشري (قدم + بوصة)</h3>
+          <p id="height-result">—</p>
+        </div>
+
+        <h3 class="all-title" id="all-title">النتيجة في جميع الوحدات</h3>
+        <div class="conv-grid" id="conv-results"></div>
+      </div>
+
+      <!-- Section 3: Plot area -->
+      <div class="card">
+        <h1 id="plot-title">🏡 حاسبة مساحة القطعة (منتظمة وغير منتظمة)</h1>
+        <p class="description" id="plot-desc">أدخل أطوال الجدران الأربعة بالقدم والبوصة.</p>
+
+        <div class="side-row">
+          <label id="lbl-side-front">الجدار الأمامي (الضلع 1)</label>
+          <div class="pair">
+            <div><small class="lbl-feet">قدم</small><input type="number" id="f1" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+            <div><small class="lbl-inch">بوصة</small><input type="number" id="i1" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+          </div>
+        </div>
+
+        <div class="side-row">
+          <label id="lbl-side-back">الجدار الخلفي (الضلع 3)</label>
+          <div class="pair">
+            <div><small class="lbl-feet">قدم</small><input type="number" id="f3" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+            <div><small class="lbl-inch">بوصة</small><input type="number" id="i3" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+          </div>
+        </div>
+
+        <div class="side-row">
+          <label id="lbl-side-left">الجدار الأيسر (الضلع 2)</label>
+          <div class="pair">
+            <div><small class="lbl-feet">قدم</small><input type="number" id="f2" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+            <div><small class="lbl-inch">بوصة</small><input type="number" id="i2" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+          </div>
+        </div>
+
+        <div class="side-row">
+          <label id="lbl-side-right">الجدار الأيمن (الضلع 4)</label>
+          <div class="pair">
+            <div><small class="lbl-feet">قدم</small><input type="number" id="f4" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+            <div><small class="lbl-inch">بوصة</small><input type="number" id="i4" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label id="lbl-marla-type" for="marla-type">قيمة المرلة:</label>
+          <select id="marla-type"></select>
+        </div>
+
+        <div class="plot-actions">
+          <button id="btn-plot" onclick="calcPlot(true)">احسب المساحة 📏</button>
+          <button id="plot-reset" class="btn-secondary" onclick="resetPlot()">مسح الحقول</button>
+        </div>
+
+        <div id="plot-result" class="result-box" style="display: none;">
+          <div class="res-grid">
+            <div class="res-item"><span id="res-sqft-label">إجمالي القدم المربع</span><strong id="res-sqft"></strong></div>
+            <div class="res-item"><span id="res-sqyd-label">إجمالي الياردة المربعة (غز)</span><strong id="res-sqyd"></strong></div>
+            <div class="res-item"><span id="res-marla-label">المرلة</span><strong id="res-marla"></strong></div>
+            <div class="res-item"><span id="res-avg-label">متوسط الطول × العرض</span><strong id="res-avg"></strong></div>
+          </div>
+          <p class="zodiac-highlight" id="res-breakdown"></p>
+          <p class="note" id="plot-note"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

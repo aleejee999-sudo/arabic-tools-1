@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأدوات الرقمية | عربک اینڈ اردو ٹولز</title>
-    <meta name="description" content="مفت آن لائن ٹولز: برج اور قسمت، عمر کا حساب، ڈائریکٹ واٹس ایپ میسج اور تسبیح کاؤنٹر۔">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog.css">
-  </head>
-  <body>
-   <header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأدوات الرقمية | عربک اینڈ اردو ٹولز</title>
+  <meta name="description" content="مفت آن لائن ٹولز: برج اور قسمت، عمر کا حساب، ڈائریکٹ واٹس ایپ، تسبیح کاؤنٹر اور ناپ تول و رقبہ۔">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <header>
     <nav>
       <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
-      <div  class="nav-links">
+      <div class="nav-links">
         <a href="index.html" class="current">ہوم</a>
         <a href="blog.html">بلاگ</a>
         <a href="about.html">ہمارے بارے میں</a>
@@ -22,23 +23,36 @@
         <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
       </div>
     </nav>
-   </header>
+  </header>
 
-   <div class="container">
+  <div class="container">
     <div class="card">
-      <h1>🛠️ مفت آن لائن ٹولز</h1>
-      <p class="description">برج، عمر کا حساب، ڈائریکٹ واٹس ایپ اور تسبیح کاؤنٹر، سب ایک جگہ</p>
+
+      <div data-lang="ur" hidden>
+        <h1>🛠️ مفت آن لائن ٹولز</h1>
+        <p class="description">برج، عمر کا حساب، ڈائریکٹ واٹس ایپ، تسبیح کاؤنٹر اور ناپ تول، سب ایک جگہ</p>
+      </div>
+      <div data-lang="ar">
+        <h1>🛠️ أدوات مجانية عبر الإنترنت</h1>
+        <p class="description">الأبراج، حساب العمر، واتساب مباشر، عدّاد التسبيح والقياس، كلها في مكان واحد</p>
+      </div>
+
       <div class="home-grid">
         <a class="home-card" href="horoscope.html">🔮<span>الأبراج والحظ</span></a>
         <a class="home-card" href="age-counter.html">🎂<span>حاسبة العمر</span></a>
-        <a class="home-card" href="wa-direct.html">💬<span>واتساب مباشر</a>
-        <a class="home-card" href="tasbih-counter.html">📿<span>التسبيح والأدعية</a>
+        <a class="home-card" href="wa-direct.html">💬<span>واتساب مباشر</span></a>
+        <a class="home-card" href="tasbih-counter.html">📿<span>التسبيح والأدعية</span></a>
+        <a class="home-card" href="unit-converter.html">📏<span>المحول والمساحة</span></a>
       </div>
-      <p class="description" style="margin-top:25px">ٹولز کے بارے میں مضامین پڑھنے کے لیے <a href="blog.html">بلاگ</a> دیکھیں۔</p>
+
+      <p class="description" style="margin-top:25px;" data-lang="ur" hidden>ٹولز کے بارے میں مضامین پڑھنے کے لیے <a href="blog.html">بلاگ</a> دیکھیں۔</p>
+      <p class="description" style="margin-top:25px;" data-lang="ar">لقراءة مقالات عن الأدوات زر <a href="blog.html">المدونة</a>.</p>
     </div>
-   </div>
-   <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
-   <script src="script.js"></script>
-   <script defer src="/_vercel/insights/script.js"></script>
-  </body>
+  </div>
+
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
 </html>

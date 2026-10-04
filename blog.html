@@ -8,43 +8,86 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="blog.css">
 </head>
-<body>
+<body data-title-ur="بلاگ | ڈیجیٹل ٹولز"
+      data-title-ar="المدونة | الأدوات الرقمية"
+      data-desc-ur="عمر کا حساب، ڈائریکٹ واٹس ایپ میسج اور تسبیح کاؤنٹر جیسے مفت آن لائن ٹولز کے بارے میں آسان اردو مضامین۔"
+      data-desc-ar="مقالات بسيطة عن أدواتنا المجانية: حساب العمر، واتساب المباشر، عدّاد التسبيح، محوّل الأطوال وغيرها.">
   <header>
     <nav>
-      <a href="index.html" class="logo">✨ ڈیجیٹل ٹولز</a>
+      <a href="index.html" class="logo">✨ <span id="logo-text">ڈیجیٹل ٹولز</span></a>
       <div class="nav-links">
-        <a href="index.html">ٹولز</a>
+        <a href="index.html">ہوم</a>
         <a href="blog.html" class="current">بلاگ</a>
         <a href="about.html">ہمارے بارے میں</a>
         <a href="contact.html">رابطہ</a>
+      </div>
+      <div class="lang-switch">
+        <button id="lang-btn" onclick="toggleLanguage()">العربية</button>
       </div>
     </nav>
   </header>
 
   <div class="container">
     <div class="card post-list">
-      <h1>بلاگ</h1>
-      <p class="description">ہمارے مفت ٹولز استعمال کرنے کے آسان طریقے</p>
 
-      <a class="post-item" href="blog-horoscope.html">
-        <h2>اپنا برج کیسے معلوم کریں؟</h2>
-        <p>تاریخِ پیدائش سے اپنا برج معلوم کرنے کا طریقہ اور بارہ برجوں کی تاریخیں۔</p>
-      </a>
-      <a class="post-item" href="blog-age-calculator.html">
-        <h2>آن لائن عمر کا حساب کیسے لگائیں؟</h2>
-        <p>تاریخِ پیدائش سے اپنی عمر سال، مہینے اور دن میں چند سیکنڈ میں معلوم کریں۔</p>
-      </a>
-      <a class="post-item" href="blog-whatsapp-direct.html">
-        <h2>نمبر سیو کیے بغیر واٹس ایپ پر میسج کیسے بھیجیں؟</h2>
-        <p>پاکستانی نمبر کو کنٹری کوڈ کے ساتھ لکھنے کا درست طریقہ اور مکمل مراحل۔</p>
-      </a>
-      <a class="post-item" href="blog-tasbeeh-counter.html">
-        <h2>آن لائن تسبیح کاؤنٹر کیسے استعمال کریں؟</h2>
-        <p>موبائل پر ڈیجیٹل تسبیح گننے کا آسان طریقہ، سو والی اور آزاد تسبیح کے ساتھ۔</p>
-      </a>
+      <div data-lang="ur">
+        <h1>بلاگ</h1>
+        <p class="description">ہمارے مفت ٹولز استعمال کرنے کے آسان طریقے</p>
+
+        <a class="post-item" href="blog-unit-converter.html">
+          <h2>سینٹی میٹر کو فٹ انچ میں اور پلاٹ کا رقبہ مرلہ میں کیسے نکالیں؟</h2>
+          <p>قد اور پلاٹ کی پیمائش کو مختلف اکائیوں میں بدلنے کا آسان طریقہ۔</p>
+        </a>
+        <a class="post-item" href="blog-horoscope.html">
+          <h2>اپنا برج کیسے معلوم کریں؟</h2>
+          <p>تاریخِ پیدائش سے اپنا برج معلوم کرنے کا طریقہ اور بارہ برجوں کی تاریخیں۔</p>
+        </a>
+        <a class="post-item" href="blog-age-calculator.html">
+          <h2>آن لائن عمر کا حساب کیسے لگائیں؟</h2>
+          <p>تاریخِ پیدائش سے اپنی عمر سال، مہینے اور دن میں چند سیکنڈ میں معلوم کریں۔</p>
+        </a>
+        <a class="post-item" href="blog-whatsapp-direct.html">
+          <h2>نمبر سیو کیے بغیر واٹس ایپ پر میسج کیسے بھیجیں؟</h2>
+          <p>پاکستانی نمبر کو کنٹری کوڈ کے ساتھ لکھنے کا درست طریقہ اور مکمل مراحل۔</p>
+        </a>
+        <a class="post-item" href="blog-tasbeeh-counter.html">
+          <h2>آن لائن تسبیح کاؤنٹر کیسے استعمال کریں؟</h2>
+          <p>موبائل پر ڈیجیٹل تسبیح گننے کا آسان طریقہ، سو والی اور آزاد تسبیح کے ساتھ۔</p>
+        </a>
+      </div>
+
+      <div data-lang="ar" hidden>
+        <h1>المدونة</h1>
+        <p class="description">طرق سهلة لاستخدام أدواتنا المجانية</p>
+
+        <a class="post-item" href="blog-unit-converter.html">
+          <h2>كيف تحوّل السنتيمتر إلى قدم وبوصة وتحسب مساحة القطعة بالمرلة؟</h2>
+          <p>طريقة سهلة لتحويل الأطوال وحساب مساحة القطعة بالأقدام المربعة والياردات والمرلة.</p>
+        </a>
+        <a class="post-item" href="blog-horoscope.html">
+          <h2>كيف تعرف برجك من تاريخ ميلادك؟</h2>
+          <p>اعرف برجك من تاريخ ميلادك، مع تواريخ الأبراج الاثني عشر.</p>
+        </a>
+        <a class="post-item" href="blog-age-calculator.html">
+          <h2>كيف تحسب عمرك بالتفصيل عبر الإنترنت؟</h2>
+          <p>اعرف عمرك بالسنوات والأشهر والأيام في ثوانٍ من تاريخ ميلادك.</p>
+        </a>
+        <a class="post-item" href="blog-whatsapp-direct.html">
+          <h2>كيف ترسل رسالة واتساب دون حفظ الرقم؟</h2>
+          <p>الطريقة الصحيحة لكتابة الرقم الباكستاني مع رمز الدولة، وخطوات الاستخدام.</p>
+        </a>
+        <a class="post-item" href="blog-tasbeeh-counter.html">
+          <h2>كيف تستخدم عدّاد التسبيح عبر الإنترنت؟</h2>
+          <p>طريقة عدّ التسبيح على الهاتف بسهولة، مع وضع المئة والوضع الحر.</p>
+        </a>
+      </div>
+
     </div>
   </div>
 
   <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© ڈیجیٹل ٹولز</div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

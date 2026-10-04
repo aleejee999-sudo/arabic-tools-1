@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ur" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>رابطہ کریں | الأدوات الرقمية</title>
+  <title>رابطہ کریں | ڈیجیٹل ٹولز</title>
   <meta name="description" content="ہم سے رابطہ کریں: سوال، تجویز یا شکایت کے لیے ای میل یا واٹس ایپ پر پیغام بھیجیں۔">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="blog.css">
 </head>
-<body>
-
+<body data-title-ur="رابطہ کریں | ڈیجیٹل ٹولز"
+      data-title-ar="اتصل بنا | الأدوات الرقمية"
+      data-desc-ur="ہم سے رابطہ کریں: سوال، تجویز یا شکایت کے لیے ای میل یا واٹس ایپ پر پیغام بھیجیں۔"
+      data-desc-ar="تواصل معنا لأي سؤال أو اقتراح أو شكوى عبر البريد الإلكتروني أو واتساب.">
   <header>
     <nav>
-      <a href="index.html" class="logo">✨ <span id="logo-text">الأدوات الرقمية</span></a>
+      <a href="index.html" class="logo">✨ <span id="logo-text">ڈیجیٹل ٹولز</span></a>
       <div class="nav-links">
         <a href="index.html">ہوم</a>
         <a href="blog.html">بلاگ</a>
@@ -20,23 +22,36 @@
         <a href="contact.html" class="current">رابطہ</a>
       </div>
       <div class="lang-switch">
-        <button id="lang-btn" onclick="toggleLanguage()">اردو</button>
+        <button id="lang-btn" onclick="toggleLanguage()">العربية</button>
       </div>
     </nav>
   </header>
 
   <div class="container">
     <article class="card article">
-      <h1>رابطہ کریں</h1>
-      <p>کوئی سوال، تجویز یا شکایت ہو تو ہمیں لکھیں۔ ہم جلد جواب دینے کی کوشش کریں گے۔</p>
-      <h2>ای میل</h2>
-      <p>alee.jee999@gmail.com</p>
-      <h2>واٹس ایپ</h2>
-      <p><a href="https://wa.me/923481255488 target="_blank">واٹس ایپ پر پیغام بھیجیں</a></p>
+
+      <div data-lang="ur">
+        <h1>رابطہ کریں</h1>
+        <p>کوئی سوال، تجویز یا شکایت ہو تو ہمیں لکھیں۔ ہم جلد جواب دینے کی کوشش کریں گے۔</p>
+        <h2>ای میل</h2>
+        <p dir="ltr" style="text-align:right">alee.jee999@gmail.com</p>
+        <h2>واٹس ایپ</h2>
+        <p><a href="https://wa.me/923005308558" target="_blank" rel="noopener">واٹس ایپ پر پیغام بھیجیں</a></p>
+      </div>
+
+      <div data-lang="ar" hidden>
+        <h1>اتصل بنا</h1>
+        <p>إذا كان لديك سؤال أو اقتراح أو شكوى، فراسلنا. وسنحاول الرد عليك في أقرب وقت.</p>
+        <h2>البريد الإلكتروني</h2>
+        <p dir="ltr" style="text-align:right">alee.jee999@gmail.com</p>
+        <h2>واتساب</h2>
+        <p><a href="https://wa.me/923005308558" target="_blank" rel="noopener">أرسل رسالة على واتساب</a></p>
+      </div>
+
     </article>
   </div>
 
-  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© الأدوات الرقمية</div>
+  <div class="site-footer"><a href="about.html">ہمارے بارے میں</a> | <a href="contact.html">رابطہ</a> | <a href="privacy.html">پرائیویسی پالیسی</a><br>© ڈیجیٹل ٹولز</div>
 
   <script src="script.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>

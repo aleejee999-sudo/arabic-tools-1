@@ -538,3 +538,334 @@ document.addEventListener('DOMContentLoaded', function () {
   loadTasbeeh();
   applyLanguage();
 });
+/* ==========================================
+   NAAP TOL AUR PLOT KA RAQBA TOOL
+   ========================================== */
+Object.assign(translations.ar, {
+  tabUnit: "📏 المحول والمساحة",
+  cardUnit: "المحول والمساحة",
+  u_mm: "ملّيمتر (mm)", u_cm: "سنتيمتر (cm)", u_m: "متر (m)",
+  u_in: "بوصة (in)", u_ft: "قدم (ft)", u_yd: "ياردة / غز (yd)",
+  u_km: "كيلومتر (km)", u_mi: "ميل (mi)", u_marla: "مرلة",
+  u_sqft: "قدم مربع", u_sqyd: "ياردة مربعة (غز)",
+  refTitle: "📋 جدول مرجعي لتحويل الوحدات",
+  refDesc: "المعادلات الدقيقة بين وحدات الطول والمساحة.",
+  refColUnit: "الوحدة", refColEq: "تعادل",
+  marlaNote: "المرلة المعتمدة هنا 225 قدماً مربعاً (25 ياردة مربعة). وتُعتمد في بعض المناطق 250 قدماً مربعاً (27.78 ياردة مربعة) أو 272.25 قدماً مربعاً (30.25 ياردة مربعة).",
+  convTitle: "📐 محوّل الأطوال الشامل",
+  convDesc: "اختر وحدة الإدخال ووحدة الإخراج، وأدخل القيمة لترى النتيجة فوراً.",
+  lblValue: "القيمة:", lblFromUnit: "من وحدة:", lblToUnit: "إلى وحدة:",
+  valuePlaceholder: "مثال: 182",
+  allTitle: "النتيجة في جميع الوحدات",
+  heightTitle: "🧍 صيغة الطول البشري (قدم + بوصة)",
+  lblFeet: "قدم", lblInches: "بوصة",
+  plotTitle: "🏡 حاسبة مساحة القطعة (منتظمة وغير منتظمة)",
+  plotDesc: "أدخل أطوال الجدران الأربعة بالقدم والبوصة.",
+  sideFront: "الجدار الأمامي (الضلع 1)", sideBack: "الجدار الخلفي (الضلع 3)",
+  sideLeft: "الجدار الأيسر (الضلع 2)", sideRight: "الجدار الأيمن (الضلع 4)",
+  lblMarlaType: "قيمة المرلة:",
+    marla225: "225 قدم مربع (المعتاد)", marla250: "250 قدم مربع", marla272: "272.25 قدم مربع",
+  btnPlot: "احسب المساحة 📏", plotReset: "مسح الحقول",
+  resSqft: "إجمالي القدم المربع", resSqyd: "إجمالي الياردة المربعة (غز)",
+  resMarla: "المرلة", resAvg: "متوسط الطول × العرض",
+  breakdown: "{m} مرلة، {f} قدم مربع، {i} بوصة مربعة",
+  plotNote: "الحساب يعتمد على متوسط كل ضلعين متقابلين. الباقي بعد المرلات يظهر بالقدم المربع والبوصة المربعة (1 قدم مربع = 144 بوصة مربعة).",
+  needSides: "الرجاء إدخال طول جدار واحد على الأقل!"
+});
+
+Object.assign(translations.ur, {
+  tabUnit: "📏 ناپ تول و رقبہ",
+  cardUnit: "ناپ تول و رقبہ",
+  u_mm: "ملی میٹر (mm)", u_cm: "سینٹی میٹر (cm)", u_m: "میٹر (m)",
+  u_in: "انچ (in)", u_ft: "فٹ (ft)", u_yd: "گز (yd)",
+  u_km: "کلومیٹر (km)", u_mi: "میل (mi)", u_marla: "مرلہ",
+  u_sqft: "مربع فٹ", u_sqyd: "مربع گز",
+  refTitle: "📋 اکائیوں کا حوالہ جدول",
+  refDesc: "لمبائی اور رقبے کی اکائیوں کے درست برابر ناپ۔",
+  refColUnit: "اکائی", refColEq: "کے برابر",
+  marlaNote: "یہاں مرلہ 225 مربع فٹ (25 مربع گز) مانا گیا ہے۔ بعض علاقوں میں 250 مربع فٹ (27.78 مربع گز) یا 272.25 مربع فٹ (30.25 مربع گز) بھی استعمال ہوتا ہے۔",
+  convTitle: "📐 لمبائی کنورٹر",
+  convDesc: "جس اکائی سے اور جس اکائی میں بدلنا ہو، دونوں چنیں اور قیمت لکھیں۔ نتیجہ فوراً آ جائے گا۔",
+  lblValue: "قیمت:", lblFromUnit: "اس اکائی سے:", lblToUnit: "اس اکائی میں:",
+  valuePlaceholder: "مثال: 182",
+  allTitle: "تمام اکائیوں میں نتیجہ",
+  heightTitle: "🧍 قد کا انداز (فٹ + انچ)",
+  lblFeet: "فٹ", lblInches: "انچ",
+  plotTitle: "🏡 پلاٹ کا رقبہ (باقاعدہ اور بے ترتیب)",
+  plotDesc: "چاروں دیواروں کی لمبائی فٹ اور انچ میں درج کریں۔",
+  sideFront: "سامنے کی دیوار (سائیڈ 1)", sideBack: "پچھلی دیوار (سائیڈ 3)",
+  sideLeft: "بائیں دیوار (سائیڈ 2)", sideRight: "دائیں دیوار (سائیڈ 4)",
+  lblMarlaType: "مرلہ کا معیار:",
+    marla225: "225 مربع فٹ (عام)", marla250: "250 مربع فٹ", marla272: "272.25 مربع فٹ",
+  btnPlot: "رقبہ معلوم کریں 📏", plotReset: "خانے صاف کریں",
+  resSqft: "کل مربع فٹ", resSqyd: "کل مربع گز",
+  resMarla: "مرلہ", resAvg: "اوسط لمبائی × چوڑائی",
+  breakdown: "{m} مرلہ، {f} مربع فٹ، {i} مربع انچ",
+  plotNote: "حساب آمنے سامنے کی دیواروں کی اوسط سے ہوتا ہے۔ مرلوں کے بعد بچا ہوا حصہ مربع فٹ اور مربع انچ میں ہے (1 مربع فٹ = 144 مربع انچ)۔",
+  needSides: "براہ کرم کم از کم ایک دیوار کی لمبائی درج کریں!"
+});
+
+// Har ikai ek meter mein kitni hai (saari ikaiyan isi se jurti hain)
+const UNITS_M = {
+  mm: 0.001, cm: 0.01, in: 0.0254, ft: 0.3048,
+  yd: 0.9144, m: 1, km: 1000, mi: 1609.344
+};
+const UNIT_ORDER = ['mm', 'cm', 'in', 'ft', 'yd', 'm', 'km', 'mi'];
+
+const REF_ROWS = [
+  { u: 'mm', eq: [[0.03937, 'in']] },
+  { u: 'cm', eq: [[0.3937, 'in']] },
+  { u: 'in', eq: [[2.54, 'cm']] },
+  { u: 'ft', eq: [[12, 'in'], [30.48, 'cm']] },
+  { u: 'm', eq: [[100, 'cm'], [3.28084, 'ft'], [39.37, 'in']] },
+  { u: 'yd', eq: [[3, 'ft'], [36, 'in']] },
+  { u: 'km', eq: [[1000, 'm'], [0.621371, 'mi']] },
+  { u: 'marla', eq: [[225, 'sqft'], [25, 'sqyd']] }
+];
+
+let plotShown = false;
+
+function fmtNum(n, d) {
+  if (!isFinite(n)) return '—';
+  return String(parseFloat(n.toFixed(d)));
+}
+
+// Chhoti aur bari dono qisam ki ginti theek dikhane ke liye (e-7 jaisa nahi)
+function fmtSmart(n) {
+  if (!isFinite(n)) return '—';
+  if (n === 0) return '0';
+  const a = Math.abs(n);
+  const d = a >= 1 ? 5 : Math.min(12, 5 + Math.ceil(-Math.log10(a)));
+  let s = n.toFixed(d);
+  if (s.indexOf('.') !== -1) s = s.replace(/0+$/, '').replace(/\.$/, '');
+  return s;
+}
+
+function fmtFixed(n, d) {
+  return n.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
+function numVal(id) {
+  const el = $(id);
+  const v = el ? parseFloat(el.value) : 0;
+  return isFinite(v) && v > 0 ? v : 0;
+}
+
+/* ---------- Section 1: reference table ---------- */
+function renderRef() {
+  const body = $('ref-body');
+  if (!body) return;
+  const t = translations[currentLang];
+  body.innerHTML = REF_ROWS.map(function (r) {
+    return '<tr><th scope="row">1 ' + t['u_' + r.u] + '</th><td>' +
+      r.eq.map(function (e) {
+        return '<span class="chip"><bdi>' + e[0] + '</bdi> ' + t['u_' + e[1]] + '</span>';
+      }).join('') + '</td></tr>';
+  }).join('');
+}
+
+/* ---------- Section 2: converter (from + to) ---------- */
+function fillUnitSelect(id, defaultUnit) {
+  const sel = $(id);
+  if (!sel) return;
+  const t = translations[currentLang];
+  const keep = sel.value || defaultUnit;
+  sel.innerHTML = UNIT_ORDER.map(function (u) {
+    return '<option value="' + u + '">' + t['u_' + u] + '</option>';
+  }).join('');
+  sel.value = keep;
+}
+
+function buildUnitSelect() {
+  fillUnitSelect('conv-unit', 'cm');
+  fillUnitSelect('conv-to', 'ft');
+}
+
+function swapUnits() {
+  const a = $('conv-unit');
+  const b = $('conv-to');
+  if (!a || !b) return;
+  const tmp = a.value;
+  a.value = b.value;
+  b.value = tmp;
+  calcConverter();
+}
+
+function calcConverter() {
+  const box = $('conv-results');
+  if (!box) return;
+  const t = translations[currentLang];
+  const raw = $('conv-value').value;
+  const val = parseFloat(raw);
+  const from = $('conv-unit').value;
+  const to = $('conv-to').value;
+  const valid = raw !== '' && isFinite(val) && val >= 0;
+  const meters = valid ? val * UNITS_M[from] : 0;
+
+  // Main natija: jis ikai mein chuna gaya
+  const main = $('conv-main');
+  if (!valid) {
+    main.textContent = '—';
+  } else {
+    main.innerHTML = '<bdi>' + fmtSmart(val) + '</bdi> ' + t['u_' + from] +
+      ' = <bdi>' + fmtSmart(meters / UNITS_M[to]) + '</bdi> ' + t['u_' + to];
+  }
+
+  // Baqi tamam ikaiyon mein natija
+  box.innerHTML = UNIT_ORDER.filter(function (u) { return u !== from; }).map(function (u) {
+    const out = valid ? fmtSmart(meters / UNITS_M[u]) : '—';
+    return '<div class="conv-item"><span>' + t['u_' + u] + '</span><strong dir="ltr">' + out + '</strong></div>';
+  }).join('');
+
+  // Qad ka andaz: feet + inches
+  const hr = $('height-result');
+  if (!valid) { hr.textContent = '—'; return; }
+  const totalIn = meters / UNITS_M.in;
+  let ft = Math.floor(totalIn / 12);
+  let inch = Math.round((totalIn - ft * 12) * 100) / 100;
+  if (inch >= 12) { ft += 1; inch = 0; }
+  hr.textContent = ft + ' ' + t.lblFeet + ' ' + fmtNum(inch, 2) + ' ' + t.lblInches;
+}
+/* ==========================================
+   BLOG: ZUBAAN KE MUTABIQ MAZMOON
+   ========================================== */
+function applyBlogLang() {
+  document.querySelectorAll('[data-lang]').forEach(function (el) {
+    el.hidden = el.getAttribute('data-lang') !== currentLang;
+  });
+  const b = document.body;
+  const title = b.getAttribute('data-title-' + currentLang);
+  if (title) document.title = title;
+  const desc = b.getAttribute('data-desc-' + currentLang);
+  const meta = document.querySelector('meta[name="description"]');
+  if (desc && meta) meta.setAttribute('content', desc);
+}
+
+const baseApplyLanguage2 = applyLanguage;
+applyLanguage = function () {
+  baseApplyLanguage2();
+  applyBlogLang();
+};
+
+/* ---------- Section 3: plot area ---------- */
+function buildMarlaSelect() {
+  const sel = $('marla-type');
+  if (!sel) return;
+  const t = translations[currentLang];
+  const keep = sel.value || '225';
+  sel.innerHTML = '<option value="225">' + t.marla225 + '</option>' +
+                  '<option value="250">' + t.marla250 + '</option>' +
+                  '<option value="272.25">' + t.marla272 + '</option>';
+  sel.value = keep;
+}
+
+function calcPlot(fromButton) {
+  if (!$('plot-result')) return;
+  const t = translations[currentLang];
+
+  const front = numVal('f1') * 12 + numVal('i1');
+  const left  = numVal('f2') * 12 + numVal('i2');
+  const back  = numVal('f3') * 12 + numVal('i3');
+  const right = numVal('f4') * 12 + numVal('i4');
+
+  if (fromButton && !(front || left || back || right)) { showToast(t.needSides); return; }
+  plotShown = true;
+
+  const avgL = ((front + back) / 2) / 12;
+  const avgW = ((left + right) / 2) / 12;
+  const sqft = avgL * avgW;
+  const sqyd = sqft / 9;
+  const marlaVal = parseFloat($('marla-type').value) || 225;
+  const marla = sqft / marlaVal;
+
+  const totalSqIn = Math.round(sqft * 144);
+  const marlaSqIn = Math.round(marlaVal * 144);
+  const mInt = Math.floor(totalSqIn / marlaSqIn);
+  const rem = totalSqIn - mInt * marlaSqIn;
+  const remFt = Math.floor(rem / 144);
+  const remIn = rem - remFt * 144;
+
+  setText('res-sqft', fmtFixed(sqft, 2) + ' ' + t.u_sqft);
+  setText('res-sqyd', fmtFixed(sqyd, 2) + ' ' + t.u_sqyd);
+  setText('res-marla', fmtFixed(marla, 3) + ' ' + t.u_marla);
+  setText('res-avg', fmtNum(avgL, 2) + ' × ' + fmtNum(avgW, 2) + ' ' + t.lblFeet);
+  setText('res-breakdown', t.breakdown.replace('{m}', mInt).replace('{f}', remFt).replace('{i}', remIn));
+  $('plot-result').style.display = 'block';
+  if (fromButton) track('plot_area_calculated');
+}
+
+function resetPlot() {
+  ['f1', 'i1', 'f2', 'i2', 'f3', 'i3', 'f4', 'i4'].forEach(function (id) {
+    const el = $(id);
+    if (el) el.value = '';
+  });
+  plotShown = false;
+  const box = $('plot-result');
+  if (box) box.style.display = 'none';
+}
+
+/* ---------- Zubaan ke saath jorna ---------- */
+function applyMeasureLang() {
+  const t = translations[currentLang];
+  setText('tab-unit', t.tabUnit);
+  setLinkText('.home-card[href="unit-converter.html"] span', t.cardUnit);
+
+  setText('ref-title', t.refTitle);
+  setText('ref-desc', t.refDesc);
+  setText('ref-col-unit', t.refColUnit);
+  setText('ref-col-eq', t.refColEq);
+  setText('marla-note', t.marlaNote);
+  renderRef();
+
+  setText('conv-title', t.convTitle);
+  setText('conv-desc', t.convDesc);
+  setText('lbl-value', t.lblValue);
+  setText('lbl-from-unit', t.lblFromUnit);
+  setText('lbl-to-unit', t.lblToUnit);
+  setText('all-title', t.allTitle);
+  setText('height-title', t.heightTitle);
+  const vi = $('conv-value');
+  if (vi) vi.placeholder = t.valuePlaceholder;
+  buildUnitSelect();
+  calcConverter();
+
+  setText('plot-title', t.plotTitle);
+  setText('plot-desc', t.plotDesc);
+  setText('lbl-side-front', t.sideFront);
+  setText('lbl-side-back', t.sideBack);
+  setText('lbl-side-left', t.sideLeft);
+  setText('lbl-side-right', t.sideRight);
+  setLinkText('.lbl-feet', t.lblFeet);
+  setLinkText('.lbl-inch', t.lblInches);
+  setText('lbl-marla-type', t.lblMarlaType);
+  setText('btn-plot', t.btnPlot);
+  setText('plot-reset', t.plotReset);
+  setText('res-sqft-label', t.resSqft);
+  setText('res-sqyd-label', t.resSqyd);
+  setText('res-marla-label', t.resMarla);
+  setText('res-avg-label', t.resAvg);
+  setText('plot-note', t.plotNote);
+  buildMarlaSelect();
+  if (plotShown) calcPlot(false);
+}
+
+// Purane applyLanguage ke saath naya hissa bhi chalao
+const baseApplyLanguage = applyLanguage;
+applyLanguage = function () {
+  baseApplyLanguage();
+  applyMeasureLang();
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  if ($('conv-value')) {
+    $('conv-value').addEventListener('input', calcConverter);
+    $('conv-unit').addEventListener('change', calcConverter);
+    $('conv-to').addEventListener('change', calcConverter);
+  }
+  if ($('plot-result')) {
+    ['f1', 'i1', 'f2', 'i2', 'f3', 'i3', 'f4', 'i4'].forEach(function (id) {
+      $(id).addEventListener('input', function () { if (plotShown) calcPlot(false); });
+    });
+    $('marla-type').addEventListener('change', function () { if (plotShown) calcPlot(false); });
+  }
+});

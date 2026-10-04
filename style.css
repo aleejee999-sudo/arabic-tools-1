@@ -494,6 +494,48 @@ button[id^="btn-"]:active { transform: scale(0.98); }
 
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* Converter: from / to selectors */
+.unit-pick {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: end;
+}
+.unit-pick .form-group { margin-bottom: 18px; }
+.unit-pick select { padding: 12px 8px; font-size: 0.9rem; }
+
+.swap-btn {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.swap-btn:hover { background: var(--grad); color: #ffffff; border-color: transparent; }
+
+.conv-main {
+  margin: 4px 0 16px;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.8;
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  color: #166534;
+  word-break: break-word;
+}
+
+.all-title { margin-top: 22px; font-size: 1rem; color: var(--text-muted); text-align: right; }
+[hidden] {display:none !important;}
+
 /* ==========================================
    11. ANIMATION & RESPONSIVE
    ========================================== */
