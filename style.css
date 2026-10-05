@@ -535,6 +535,9 @@ button[id^="btn-"]:active { transform: scale(0.98); }
 
 .all-title { margin-top: 22px; font-size: 1rem; color: var(--text-muted); text-align: right; }
 [hidden] {display:none !important;}
+html, body {max-width: 100%; overflow-x: clip;}
+.conatiner, .card, .form-group {min-width: 0; max-width: 100%;}
+input[type="date"] {display:block; min-width: 0; max-width: 100%; min-height: 48px;}
 
 /* ==========================================
    11. ANIMATION & RESPONSIVE
