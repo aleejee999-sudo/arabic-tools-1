@@ -572,6 +572,11 @@ Object.assign(translations.ar, {
   plotNote: "الحساب يعتمد على متوسط كل ضلعين متقابلين. الباقي بعد المرلات يظهر بالقدم المربع والبوصة المربعة (1 قدم مربع = 144 بوصة مربعة).",
   needSides: "الرجاء إدخال طول جدار واحد على الأقل!"
 });
+Object.assign(translations.ar, {
+  convDesc: "اختر الوحدة وأدخل القيمة لترى النتيجة في جميع الوحدات فوراً.",
+  lblPickUnit: "اختر الوحدة:",
+  lblEnterValue: "أدخل الطول أو القيمة:"
+});
 
 Object.assign(translations.ur, {
   tabUnit: "📏 ناپ تول و رقبہ",
@@ -603,6 +608,11 @@ Object.assign(translations.ur, {
   breakdown: "{m} مرلہ، {f} مربع فٹ، {i} مربع انچ",
   plotNote: "حساب آمنے سامنے کی دیواروں کی اوسط سے ہوتا ہے۔ مرلوں کے بعد بچا ہوا حصہ مربع فٹ اور مربع انچ میں ہے (1 مربع فٹ = 144 مربع انچ)۔",
   needSides: "براہ کرم کم از کم ایک دیوار کی لمبائی درج کریں!"
+});
+Object.assign(translations.ur, {
+  convDesc: "اکائی چنیں، قیمت لکھیں، اور تمام اکائیوں میں نتیجہ فوراً دیکھیں۔",
+  lblPickUnit: "اکائی منتخب کریں:",
+  lblEnterValue: "لمبائی یا عدد درج کریں:"
 });
 
 // Har ikai ek meter mein kitni hai (saari ikaiyan isi se jurti hain)
@@ -678,17 +688,6 @@ function fillUnitSelect(id, defaultUnit) {
 
 function buildUnitSelect() {
   fillUnitSelect('conv-unit', 'cm');
-  fillUnitSelect('conv-to', 'ft');
-}
-
-function swapUnits() {
-  const a = $('conv-unit');
-  const b = $('conv-to');
-  if (!a || !b) return;
-  const tmp = a.value;
-  a.value = b.value;
-  b.value = tmp;
-  calcConverter();
 }
 
 function calcConverter() {
@@ -698,26 +697,16 @@ function calcConverter() {
   const raw = $('conv-value').value;
   const val = parseFloat(raw);
   const from = $('conv-unit').value;
-  const to = $('conv-to').value;
   const valid = raw !== '' && isFinite(val) && val >= 0;
   const meters = valid ? val * UNITS_M[from] : 0;
 
-  // Main natija: jis ikai mein chuna gaya
-  const main = $('conv-main');
-  if (!valid) {
-    main.textContent = '—';
-  } else {
-    main.innerHTML = '<bdi>' + fmtSmart(val) + '</bdi> ' + t['u_' + from] +
-      ' = <bdi>' + fmtSmart(meters / UNITS_M[to]) + '</bdi> ' + t['u_' + to];
-  }
-
-  // Baqi tamam ikaiyon mein natija
+  // باقی تمام اکائیوں میں نتیجہ
   box.innerHTML = UNIT_ORDER.filter(function (u) { return u !== from; }).map(function (u) {
     const out = valid ? fmtSmart(meters / UNITS_M[u]) : '—';
     return '<div class="conv-item"><span>' + t['u_' + u] + '</span><strong dir="ltr">' + out + '</strong></div>';
   }).join('');
 
-  // Qad ka andaz: feet + inches
+  // قد کا انداز: فٹ + انچ
   const hr = $('height-result');
   if (!valid) { hr.textContent = '—'; return; }
   const totalIn = meters / UNITS_M.in;
@@ -726,6 +715,7 @@ function calcConverter() {
   if (inch >= 12) { ft += 1; inch = 0; }
   hr.textContent = ft + ' ' + t.lblFeet + ' ' + fmtNum(inch, 2) + ' ' + t.lblInches;
 }
+ 
 /* ==========================================
    BLOG: ZUBAAN KE MUTABIQ MAZMOON
    ========================================== */
@@ -819,9 +809,8 @@ function applyMeasureLang() {
 
   setText('conv-title', t.convTitle);
   setText('conv-desc', t.convDesc);
-  setText('lbl-value', t.lblValue);
-  setText('lbl-from-unit', t.lblFromUnit);
-  setText('lbl-to-unit', t.lblToUnit);
+  setText('lbl-pick-unit', t.lblPickUnit);
+  setText('lbl-value', t.lblEnterValue);
   setText('all-title', t.allTitle);
   setText('height-title', t.heightTitle);
   const vi = $('conv-value');
@@ -835,8 +824,14 @@ function applyMeasureLang() {
   setText('lbl-side-back', t.sideBack);
   setText('lbl-side-left', t.sideLeft);
   setText('lbl-side-right', t.sideRight);
-  setLinkText('.lbl-feet', t.lblFeet);
-  setLinkText('.lbl-inch', t.lblInches);
+  ['f1', 'f2', 'f3', 'f4'].forEach(function (id) {
+    const el = $(id);
+    if (el) el.placeholder = t.lblFeet;
+  });
+  ['i1', 'i2', 'i3', 'i4'].forEach(function (id) {
+    const el = $(id);
+    if (el) el.placeholder = t.lblInches;
+  });
   setText('lbl-marla-type', t.lblMarlaType);
   setText('btn-plot', t.btnPlot);
   setText('plot-reset', t.plotReset);
@@ -849,6 +844,8 @@ function applyMeasureLang() {
   if (plotShown) calcPlot(false);
 }
 
+  
+
 // Purane applyLanguage ke saath naya hissa bhi chalao
 const baseApplyLanguage = applyLanguage;
 applyLanguage = function () {
@@ -860,7 +857,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if ($('conv-value')) {
     $('conv-value').addEventListener('input', calcConverter);
     $('conv-unit').addEventListener('change', calcConverter);
-    $('conv-to').addEventListener('change', calcConverter);
+  
   }
   if ($('plot-result')) {
     ['f1', 'i1', 'f2', 'i2', 'f3', 'i3', 'f4', 'i4'].forEach(function (id) {

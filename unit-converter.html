@@ -50,28 +50,21 @@
       </div>
 
           <!-- Section 2: Converter -->
+      <!-- Section 2: Converter -->
       <div class="card">
         <h1 id="conv-title">📐 محوّل الأطوال الشامل</h1>
-        <p class="description" id="conv-desc">اختر وحدة الإدخال ووحدة الإخراج، وأدخل القيمة لترى النتيجة فوراً.</p>
+        <p class="description" id="conv-desc">اختر الوحدة وأدخل القيمة لترى النتيجة في جميع الوحدات فوراً.</p>
 
-        <div class="form-group">
-          <label id="lbl-value" for="conv-value">القيمة:</label>
-          <input type="number" id="conv-value" inputmode="decimal" step="any" min="0" placeholder="مثال: 182">
-        </div>
-
-        <div class="unit-pick">
+        <div class="conv-row">
           <div class="form-group">
-            <label id="lbl-from-unit" for="conv-unit">من وحدة:</label>
+            <label id="lbl-pick-unit" for="conv-unit">اختر الوحدة:</label>
             <select id="conv-unit"></select>
           </div>
-          <button type="button" class="swap-btn" onclick="swapUnits()" aria-label="⇄">⇄</button>
           <div class="form-group">
-            <label id="lbl-to-unit" for="conv-to">إلى وحدة:</label>
-            <select id="conv-to"></select>
+            <label id="lbl-value" for="conv-value">أدخل الطول أو القيمة:</label>
+            <input type="number" id="conv-value" inputmode="decimal" step="any" min="0" placeholder="مثال: 182">
           </div>
         </div>
-
-        <div class="conv-main" id="conv-main">—</div>
 
         <div class="height-box">
           <h3 id="height-title">🧍 صيغة الطول البشري (قدم + بوصة)</h3>
@@ -87,37 +80,37 @@
         <h1 id="plot-title">🏡 حاسبة مساحة القطعة (منتظمة وغير منتظمة)</h1>
         <p class="description" id="plot-desc">أدخل أطوال الجدران الأربعة بالقدم والبوصة.</p>
 
-                <div class="side-row">
+        <div class="side-row">
           <label id="lbl-side-front">الجدار الأمامي (الضلع 1)</label>
-          <div class="pair">
-            <input type="number" id="f1" inputmode="decimal" min="0" step="any" placeholder="قدم">
-            <input type="number" id="i1" inputmode="decimal" min="0" step="any" placeholder="بوصة">
+          <div class="pair" style="display:flex; gap:8px;">
+            <input type="number" id="f1" inputmode="decimal" min="0" step="any" placeholder="قدم" style="flex:1; min-width:0; text-align:center;">
+            <input type="number" id="i1" inputmode="decimal" min="0" step="any" placeholder="بوصة" style="flex:1; min-width:0; text-align:center;">
           </div>
         </div>
 
         <div class="side-row">
           <label id="lbl-side-back">الجدار الخلفي (الضلع 3)</label>
-          <div class="pair">
-            <input type="number" id="f3" inputmode="decimal" min="0" step="any" placeholder="قدم">
-            <input type="number" id="i3" inputmode="decimal" min="0" step="any" placeholder="بوصة">
+          <div class="pair" style="display:flex; gap:8px;">
+            <input type="number" id="f3" inputmode="decimal" min="0" step="any" placeholder="قدم" style="flex:1; min-width:0; text-align:center;">
+            <input type="number" id="i3" inputmode="decimal" min="0" step="any" placeholder="بوصة" style="flex:1; min-width:0; text-align:center;">
           </div>
         </div>
 
         <div class="side-row">
           <label id="lbl-side-right">الجدار الأيمن (الضلع 4)</label>
-          <div class="pair">
-            <input type="number" id="f4" inputmode="decimal" min="0" step="any" placeholder="قدم">
-            <input type="number" id="i4" inputmode="decimal" min="0" step="any" placeholder="بوصة">
+          <div class="pair" style="display:flex; gap:8px;">
+            <input type="number" id="f4" inputmode="decimal" min="0" step="any" placeholder="قدم" style="flex:1; min-width:0; text-align:center;">
+            <input type="number" id="i4" inputmode="decimal" min="0" step="any" placeholder="بوصة" style="flex:1; min-width:0; text-align:center;">
           </div>
         </div>
 
         <div class="side-row">
           <label id="lbl-side-left">الجدار الأيسر (الضلع 2)</label>
-          <div class="pair">
-            <input type="number" id="f2" inputmode="decimal" min="0" step="any" placeholder="قدم">
-            <input type="number" id="i2" inputmode="decimal" min="0" step="any" placeholder="بوصة">
+          <div class="pair" style="display:flex; gap:8px;">
+            <input type="number" id="f2" inputmode="decimal" min="0" step="any" placeholder="قدم" style="flex:1; min-width:0; text-align:center;">
+            <input type="number" id="i2" inputmode="decimal" min="0" step="any" placeholder="بوصة" style="flex:1; min-width:0; text-align:center;">
           </div>
-        </div>
+        </div>        
 
         <div class="form-group">
           <label id="lbl-marla-type" for="marla-type">قيمة المرلة:</label>
