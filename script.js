@@ -866,3 +866,16 @@ document.addEventListener('DOMContentLoaded', function () {
     $('marla-type').addEventListener('change', function () { if (plotShown) calcPlot(false); });
   }
 });
+/* ==========================================
+   QR TOOL: TAB AUR HOME CARD KE NAAM
+   ========================================== */
+Object.assign(translations.ar, { tabQr: "🔳 مولّد رمز QR", cardQr: "مولّد رمز QR" });
+Object.assign(translations.ur, { tabQr: "🔳 کیو آر کوڈ", cardQr: "کیو آر کوڈ جنریٹر" });
+
+const baseApplyLanguage3 = applyLanguage;
+applyLanguage = function () {
+  baseApplyLanguage3();
+  const t = translations[currentLang];
+  setText('tab-qr', t.tabQr);
+  setLinkText('.home-card[href="qr-code.html"] span', t.cardQr);
+};

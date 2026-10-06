@@ -1,0 +1,118 @@
+/* qr-style.css | صرف QR ٹول کے لیے، رنگ اور فونٹ style.css سے آتے ہیں */
+.qr-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.qr-root select {
+  width: 100%;
+  padding: 12px 10px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--text-main);
+  outline: none;
+}
+.qr-root select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.qr-root input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.qr-root input[type="color"] {
+  width: 100%;
+  height: 48px;
+  padding: 3px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.qr-phone-row {
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  gap: 8px;
+  direction: ltr;
+}
+.qr-phone-row input { text-align: center; }
+
+.qr-colors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.qr-design {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-color);
+  text-align: right;
+}
+.qr-design h2 { font-size: 1.1rem; margin-bottom: 12px; }
+
+.qr-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.9;
+  text-align: right;
+  margin-top: 6px;
+}
+
+/* موبائل فریم میں لائیو پریویو */
+.qr-phone {
+  width: 280px;
+  max-width: 100%;
+  margin: 24px auto 0;
+  padding: 26px 14px 20px;
+  border: 10px solid #0f172a;
+  border-radius: 34px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.qr-phone::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 6px;
+  margin: -14px auto 12px;
+  background: #0f172a;
+  border-radius: 9px;
+}
+.qr-shop { font-weight: 700; font-size: 1.05rem; line-height: 1.7; min-height: 1.7em; }
+.qr-bank { color: var(--primary-color); font-size: 0.9rem; font-weight: 600; line-height: 1.7; }
+.qr-canvas { display: flex; justify-content: center; margin: 10px 0; }
+.qr-canvas canvas { max-width: 100%; height: auto !important; }
+.qr-meta { direction: ltr; font-size: 0.78rem; color: var(--text-muted); word-break: break-all; line-height: 1.6; }
+
+.qr-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; align-items: center; }
+.qr-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--grad);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.22);
+  transition: transform 0.15s ease;
+}
+.qr-btn:active { transform: scale(0.97); }
+.qr-btn.alt { background: var(--green); box-shadow: 0 6px 14px rgba(5, 150, 105, 0.25); }
+.qr-btn.ghost { background: #ffffff; color: var(--primary-color); border: 1px solid var(--border-color); box-shadow: none; }
+.qr-actions select { width: auto; flex: 0 0 auto; }
+
+@media (max-width: 480px) {
+  .qr-colors { grid-template-columns: 1fr 1fr; }
+}
